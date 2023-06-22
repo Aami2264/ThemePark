@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<div class="col-md-6">
+                                                <div class="card">
+<!--                                                    <div class="card-header">-->
+                                                        <h3>Enter Ticket Details</h3>
+                                                        <!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
+<!--                                                    </div>-->
+                                                    <div class="card-block">
+                                                        <form class="form-material" method="post" action="{% url 'saveticket' %}" enctype="multipart/form-data">
+                                                            {%csrf_token%}
+                                                            <div class="form-group form-default">
+                                                                <input type="text" class="form-control" required="" name="name">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Name</label>
+                                                            </div>
+
+                                                            <div class="form-group form-default">
+                                                                <input type="text" class="form-control" required="" name="description">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Description</label>
+                                                            </div>
+
+                                                            <div class="form-group form-default">
+                                                                <input type="text" class="form-control" required="" name="rate">
+                                                                <span class="form-bar"></span>
+                                                                <label class="float-label">Rate</label>
+                                                            </div>
+
+<!--                                                            <div class="form-group form-default">-->
+<!--                                                                <input type="text" name="footer-email" class="form-control" required="" value="My value">-->
+<!--                                                                <span class="form-bar"></span>-->
+<!--                                                                <label class="float-label">Predefine value</label>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="form-group form-default">-->
+<!--                                                                <input type="text" name="footer-email" class="form-control" required="" disabled="">-->
+<!--                                                                <span class="form-bar"></span>-->
+<!--                                                                <label class="float-label">Disabled</label>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="form-group form-default">-->
+<!--                                                                <input type="text" name="footer-email" class="form-control" required="" maxlength="6">-->
+<!--                                                                <span class="form-bar"></span>-->
+<!--                                                                <label class="float-label">Max length 6 char</label>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="form-group form-default">-->
+<!--                                                                <textarea class="form-control" required=""></textarea>-->
+<!--                                                                <span class="form-bar"></span>-->
+<!--                                                                <label class="float-label">Text area Input</label>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="form-group form-default">-->
+
+<!--                                                               <input type="file" class="form-control" required="" name="image">-->
+<!--                                                               <span class="form-bar"></span>-->
+<!--                                                            </div>-->
+                                                            <div>
+                                                            <button class="btn waves-effect waves-light hor-grd btn-grd-primary " type="submit">Submit</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+</center>
+</body>
+</html>
+{% endblock %}

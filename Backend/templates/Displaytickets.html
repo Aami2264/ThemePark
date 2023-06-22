@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card-block table-border-style">
+                                                <div class="table-responsive">
+                                                    <table class="table table-inverse">
+                                                        <thead>
+                                                            <tr>
+
+                                                                <th>Name</th>
+                                                                <th>Description</th>
+                                                                <th>Rate</th>
+                                                                <th></th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for d in data %}
+                                                            <tr>
+
+                                                                <td>{{d.Name}}</td>
+                                                                <td>{{d.Description}}</td>
+                                                                <td>
+                                                                  {{d.Rate}}
+                                                                </td>
+                                                                <td>
+                                                                    <form action="{% url 'editticket' dataid=d.id %}">
+                                                                    <button type="submit" class="btn waves-effect waves-light hor-grd btn-grd-primary ">Edit</button>
+                                                                    </form>
+                                                                </td>
+                                                                <td>
+                                                                    <form action="{% url 'deleteticket' dataid=d.id%}">
+                                                                    <button type="submit" class="btn waves-effect waves-light hor-grd btn-grd-primary ">Delete</button>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
+
+                                                        {% endfor %}
+<!--                                                            <tr>-->
+<!--                                                                <th scope="row">2</th>-->
+<!--                                                                <td>Jacob</td>-->
+<!--                                                                <td>Thornton</td>-->
+<!--                                                                <td>@fat</td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr>-->
+<!--                                                                <th scope="row">3</th>-->
+<!--                                                                <td>Larry</td>-->
+<!--                                                                <td>the Bird</td>-->
+<!--                                                                <td>@twitter</td>-->
+<!--                                                            </tr>-->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+</body>
+</html>
+{% endblock %}

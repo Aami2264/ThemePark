@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card-block table-border-style">
+                                                <div class="table-responsive">
+                                                    <table class="table table-inverse">
+                                                        <thead>
+                                                            <tr>
+
+                                                                <th>Images</th>
+                                                                <th></th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for d in data %}
+                                                            <tr>
+                                                                <td>
+                                                                    <img src="{{d.Image.url}}" width="150px" height="150px">
+                                                                </td>
+                                                                <td>
+                                                                    <form action="{% url 'deleteimage' dataid=d.id%}">
+                                                                    <button type="submit" class="btn waves-effect waves-light hor-grd btn-grd-primary ">Delete</button>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
+
+                                                        {% endfor %}
+<!--                                                            <tr>-->
+<!--                                                                <th scope="row">2</th>-->
+<!--                                                                <td>Jacob</td>-->
+<!--                                                                <td>Thornton</td>-->
+<!--                                                                <td>@fat</td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr>-->
+<!--                                                                <th scope="row">3</th>-->
+<!--                                                                <td>Larry</td>-->
+<!--                                                                <td>the Bird</td>-->
+<!--                                                                <td>@twitter</td>-->
+<!--                                                            </tr>-->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+</body>
+</html>
+{% endblock %}

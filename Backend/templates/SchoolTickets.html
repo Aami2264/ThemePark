@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card-block table-border-style">
+                                                <div class="table-responsive">
+                                                    <table class="table table-inverse">
+                                                        <thead>
+                                                            <tr>
+
+                                                                <th>Name</th>
+                                                                <th>Phone</th>
+                                                                <th>Email</th>
+                                                                <th>Date</th>
+
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {% for d in dat %}
+                                                            <tr>
+
+                                                                <td>{{d.Name}}</td>
+                                                                <td>{{d.Phone}}</td>
+                                                                <td>
+                                                                  {{d.Email}}
+                                                                </td>
+                                                                <td>
+                                                                  {{d.Date}}
+                                                                </td>
+
+                                                                <td>
+                                                                    <form action="{% url 'deleteschoolticket' dataid=d.id%}">
+                                                                    <button type="submit" class="btn waves-effect waves-light hor-grd btn-grd-primary ">Delete</button>
+                                                                    </form>
+                                                                </td>
+                                                            </tr>
+
+                                                        {% endfor %}
+<!--                                                            <tr>-->
+<!--                                                                <th scope="row">2</th>-->
+<!--                                                                <td>Jacob</td>-->
+<!--                                                                <td>Thornton</td>-->
+<!--                                                                <td>@fat</td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr>-->
+<!--                                                                <th scope="row">3</th>-->
+<!--                                                                <td>Larry</td>-->
+<!--                                                                <td>the Bird</td>-->
+<!--                                                                <td>@twitter</td>-->
+<!--                                                            </tr>-->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  {% if messages %}
+    {% for message in messages %}
+  {% if message.tags == 'warning' %}
+  <script>
+      swal('{{message}}','','warning');
+  </script>
+
+  {% elif message.tags == 'error' %}
+  <script>
+      swal('{{message}}','','error');
+  </script>
+
+  {% else %}
+  <script>
+      swal('{{message}}','','success');
+  </script>
+
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+</body>
+</html>
+{% endblock %}
